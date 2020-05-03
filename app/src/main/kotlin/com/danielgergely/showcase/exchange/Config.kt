@@ -1,4 +1,4 @@
-package com.danielgergely.showcase
+package com.danielgergely.showcase.exchange
 
 import com.danielgergely.showcase.common.minutes
 

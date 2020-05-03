@@ -7,6 +7,4 @@ import io.reactivex.rxjava3.core.Single
 interface ExchangeRepository {
 
     fun getData(): Single<ExchangeData>
-
-    fun clearCache()
 }

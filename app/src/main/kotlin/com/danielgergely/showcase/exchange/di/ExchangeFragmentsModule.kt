@@ -6,7 +6,7 @@ import dagger.android.ContributesAndroidInjector
 
 
 @Module
-abstract class FragmentsModule {
+abstract class ExchangeFragmentsModule {
 
     @ContributesAndroidInjector
     abstract fun contributeExchangeFragmentInjector(): ExchangeFragment

@@ -1,11 +1,8 @@
 package com.danielgergely.showcase.common
 
-import androidx.fragment.app.Fragment
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.LiveDataReactiveStreams
-import androidx.lifecycle.Observer
-import io.reactivex.rxjava3.core.BackpressureStrategy
-import io.reactivex.rxjava3.core.Observable
+import android.view.View
+import android.view.View.GONE
+import android.view.View.VISIBLE
 import org.threeten.bp.Duration
 import org.threeten.bp.temporal.ChronoUnit.MINUTES
 
@@ -15,13 +12,14 @@ import org.threeten.bp.temporal.ChronoUnit.MINUTES
 inline val Any?.exhaustive
     get() = this
 
-fun <T> Observable<T>.toLiveData() = let {
-    LiveDataReactiveStreams.fromPublisher(it.toFlowable(BackpressureStrategy.LATEST))
-}
+var View.viewVisibility: Boolean
+    get() = visibility == VISIBLE
+    set(value) {
+        visibility = if (value) VISIBLE else GONE
+    }
 
-fun <T> Fragment.observe(liveData: LiveData<T>, block: (T) -> Any?) {
-    liveData.observe(this, Observer { block(it) })
-}
+fun <T> MutableList<T>.removeLastElement(): T =
+    if (isEmpty()) throw NoSuchElementException("List is empty.") else removeAt(lastIndex)
 
 inline val Int.minutes: Duration
     get() = Duration.of(toLong(), MINUTES)

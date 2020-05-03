@@ -1,6 +1,6 @@
 package com.danielgergely.showcase.exchange.di
 
-import com.danielgergely.showcase.Config
+import com.danielgergely.showcase.exchange.Config
 import com.danielgergely.showcase.exchange.di.qualifiers.*
 import dagger.Module
 import dagger.Provides
